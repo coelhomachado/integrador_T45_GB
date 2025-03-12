@@ -82,9 +82,17 @@
             color: #219a60;
         }
 
-        /* Rest of existing styles */
+        /* Content styles */
+        .content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .container {
             max-width: 800px;
+            width: 100%;
             margin: 40px auto;
             padding: 20px;
         }
@@ -104,6 +112,7 @@
 
         .form-group {
             margin-bottom: 1.5rem;
+            width: 100%;
         }
 
         label {
@@ -127,12 +136,6 @@
             box-shadow: 0 0 5px rgba(39, 174, 96, 0.2);
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
         .form-buttons {
             display: flex;
             gap: 1rem;
@@ -147,6 +150,7 @@
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s;
+            min-width: 150px;
         }
 
         .btn-primary {
@@ -179,6 +183,23 @@
             margin-top: 0.5rem;
         }
 
+        .terms-info {
+            font-size: 0.9rem;
+            color: black;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #219a60;
+            color: goldenrod;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+            width: 100%;
+        }
+
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -193,10 +214,6 @@
 
             .container {
                 margin: 20px;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
             }
 
             .form-buttons {
@@ -232,79 +249,48 @@
         </div>
     </nav>
 
-    <!-- Rest of the existing form content -->
-    <div class="container">
-        <div class="form-container">
-            <h1>Cadastro no Programa EcoTroca </h1>
-            
-            <form id="cadastroForm" onsubmit="return false;">
-                <div class="form-row">
+    <div class="content">
+        <div class="container">
+            <div class="form-container">
+                <h1>Cadastro no Programa EcoTroca</h1>
+
+                <form id="cadastroForm" onsubmit="return false;">
                     <div class="form-group">
-                        <label class="required" for="nome">Nome Completo</label>
+                        <label class="required" for="nome">Nome</label>
                         <input placeholder="João da Silva" type="text" id="nome" name="nome" required>
                     </div>
-                    <div class="form-group">
-                        <label class="required" for="cpf">CPF</label>
-                        <input placeholder="000.000.000-00" type="text" id="cpf" name="cpf" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
+                    
                     <div class="form-group">
                         <label class="required" for="email">E-mail</label>
                         <input placeholder="seuemail@email.com" type="email" id="email" name="email" required>
                     </div>
-                    <div class="form-group">
-                        <label class="required" for="telefone">Telefone</label>
-                        <input placeholder="(00)0000-0000" type="tel" id="telefone" name="telefone" required>
+
+                    <div class="form-group">                
+                        <label class="required" for="senha">Senha</label>                
+                        <input type="password" id="senha" name="senha" required>                
+                        <div class="form-info">A senha deve conter pelo menos 4 caracteres, incluindo letras e números</div>                
                     </div>
-                </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="required" for="cep">CEP</label>
-                        <input placeholder="00000-000" type="text" id="cep" name="cep" required>
+                    <div class="form-group">                
+                        <label class="required" for="confirmarSenha">Confirmar Senha</label>                
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" required>
                     </div>
-                    <div class="form-group">
-                        <label class="required" for="numero">Número</label>
-                        <input placeholder="0000" type="text" id="numero" name="numero" required>
+
+                    <div class="form-buttons">
+                        <button type="button" class="btn-secondary">Cancelar</button>
+                        <button type="submit" class="btn-primary">Cadastrar</button>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="required" for="endereco">Endereço</label>
-                    <input placeholder="Rua do Endereço" type="text" id="endereco" name="endereco" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="required" for="bairro">Bairro</label>
-                        <input placeholder="Das Alamedas" type="text" id="bairro" name="bairro" required>
+                    
+                    <div class="terms-info">
+                        Ao clicar em Cadastrar, você concorda com os Termos de Uso e com as Políticas de Privacidade
                     </div>
-                    <div class="form-group">
-                        <label class="required" for="cidade">Cidade</label>
-                        <input placeholder="São Paulo" type="text" id="cidade" name="cidade" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="required" for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" required>
-                    <div class="form-info">A senha deve conter pelo menos 4 caracteres, incluindo letras e números</div>
-                </div>
-
-                <div class="form-group">
-                    <label class="required" for="confirmarSenha">Confirmar Senha</label>
-                    <input type="password" id="confirmarSenha" name="confirmarSenha" required>
-                </div>
-
-                <div class="form-buttons">
-                    <button type="button" class="btn-secondary">Cancelar</button>
-                    <button type="submit" class="btn-primary">Cadastrar</button>
-                    <div class="form-info">Ao clicar em Cadastrar, você concorda com os Termos de Uso e com as Políticas de Privacidade</div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>© 2025 ECOTROCA</p>
+    </footer>
 </body>
 </html>
