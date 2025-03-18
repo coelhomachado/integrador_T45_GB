@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Inicial - Ecotroca</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #27ae52;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation Styles */
+        .nav-menu {
+            background-color: #219a60;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: goldenrod;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: goldenrod;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: goldenrod;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: goldenrod;
+            color: #219a60;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background-color: #219a60;
+            color: goldenrod;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <div class="nav-container">
+            <a href="#" class="logo-container">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="goldenrod" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4V2.21C12 1.76 11.46 1.54 11.15 1.86L8.35 4.65C8.15 4.85 8.15 5.16 8.35 5.36L11.14 8.15C11.46 8.46 12 8.24 12 7.79V6C15.31 6 18 8.69 18 12C18 13.01 17.75 13.97 17.3 14.8L18.76 16.26C19.54 15.03 20 13.57 20 12C20 7.58 16.42 4 12 4Z"/>
+                    <path d="M12 18C8.69 18 6 15.31 6 12C6 10.99 6.25 10.03 6.7 9.2L5.24 7.74C4.46 8.97 4 10.43 4 12C4 16.42 7.58 20 12 20V21.79C12 22.24 12.54 22.46 12.85 22.14L15.64 19.35C15.84 19.15 15.84 18.84 15.64 18.64L12.85 15.85C12.54 15.54 12 15.76 12 16.21V18Z"/>
+                    <path d="M12 12L7.35 16.65C7.15 16.85 7.15 17.16 7.35 17.36L10.14 20.15C10.46 20.46 11 20.24 11 19.79V18C15.42 18 19 14.42 19 10V9.79C19 9.34 18.46 9.12 18.15 9.44L12 12Z"/>
+                </svg>
+                <span class="logo-text">EcoTroca</span>
+            </a>
+            <div class="nav-links">
+                <a href="#">Início</a>
+                <a href="#">Institucional</a>
+                <a href="#">FAQ</a>
+                <a href="#">Empresas</a>
+                <a href="#">Cadastro</a>
+                <a href="#">Fale Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h2>Seção Principal</h2>
+        <p>Bem-vindo à ECO, um novo passo para ressignificação</p>
+    </main>
+    <footer>
+        <p>© 2025 EcoTroca</p>
+    </footer>
+</body>
+</html>
