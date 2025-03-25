@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FALE CONOSCO - Ecotroca</title>
+   
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="nav-menu">
+        <div class="nav-container">
+            <a href="#" class="logo-container">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="goldenrod" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4V2.21C12 1.76 11.46 1.54 11.15 1.86L8.35 4.65C8.15 4.85 8.15 5.16 8.35 5.36L11.14 8.15C11.46 8.46 12 8.24 12 7.79V6C15.31 6 18 8.69 18 12C18 13.01 17.75 13.97 17.3 14.8L18.76 16.26C19.54 15.03 20 13.57 20 12C20 7.58 16.42 4 12 4Z"/>
+                    <path d="M12 18C8.69 18 6 15.31 6 12C6 10.99 6.25 10.03 6.7 9.2L5.24 7.74C4.46 8.97 4 10.43 4 12C4 16.42 7.58 20 12 20V21.79C12 22.24 12.54 22.46 12.85 22.14L15.64 19.35C15.84 19.15 15.84 18.84 15.64 18.64L12.85 15.85C12.54 15.54 12 15.76 12 16.21V18Z"/>
+                    <path d="M12 12L7.35 16.65C7.15 16.85 7.15 17.16 7.35 17.36L10.14 20.15C10.46 20.46 11 20.24 11 19.79V18C15.42 18 19 14.42 19 10V9.79C19 9.34 18.46 9.12 18.15 9.44L12 12Z"/>
+                </svg>
+                <span class="logo-text">EcoTroca</span>
+            </a>
+            <div class="nav-links">
+                <a href="#">Início</a>
+                <a href="#">Institucional</a>
+                <a href="#">FAQ</a>
+                <a href="#">Empresas</a>
+                <a href="#">Cadastro</a>
+                <a href="#">Fale Conosco</a>
+            </div>
+        </div>
+    </nav>
+
+</head>
+<body>
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h1>Entre em Contato</h1>
+                <div class="info-item">
+                    <h2>Nosso Endereço</h2>
+                    <p>Av. Verde, 1234</p>
+                    <p>Bairro Verde - Santos/SP</p>
+                    <p>CEP: 01234-567</p>
+                </div>
+
+                <div class="info-item">
+                    <h2>Contatos</h2>
+                    <p>Telefone: (13) 1234-5678</p>
+                    <p>WhatsApp: (13) 99999-9999</p>
+                    <p>Email: recicleganhe@ecotroca.com</p>
+                </div>
+
+                <div class="info-item">
+                    <h2>Horário de Atendimento</h2>
+                    <p>Segunda a Sexta: 9h às 17h</p>
+                </div>
+
+                <div class="social-media">
+                    <h2>Redes Sociais</h2>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Envie sua Mensagem</h2>
+                <form id="contactForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assunto">Assunto</label>
+                        <select id="assunto" name="assunto" required>
+                            <option value="">Selecione um assunto</option>
+                            <option value="duvida">Dúvidas</option>
+                            <option value="sugestao">Sugestões</option>
+                            <option value="reclamacao">Reclamações</option>
+                            <option value="parceria">Parcerias</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+                    </div>
+
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <h2>Nossa Localização</h2>
+            <div class="map-placeholder">
+                <p>Mapa será carregado aqui</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>@felipemoriya - EcoTroca - Projeto Proz/Talento Cloud - T45 - G2 © 2025</p>
+    </footer>
+
+</body>
+</html>
