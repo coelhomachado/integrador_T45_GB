@@ -233,3 +233,74 @@
                 font-size: 1rem;
             }
         }
+
+
+        /* Adicione estes estilos ao seu arquivo style.css existente */
+  
+/* Estilo para o diagrama ER */
+.mermaid {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow-x: auto;
+  }
+
+
+  /* Melhorias para as tabelas de dados */
+  .database-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .database-table th {
+    background-color: #26a69a;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 15px;
+  }
+  
+  .database-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .database-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .database-table tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+  
+  /* Estilo para as consultas SQL */
+  .sql-query-item {
+    margin-bottom: 25px;
+  }
+  
+  .sql-query {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    line-height: 1.4;
+    overflow-x: auto;
+  }
+  
+  .sql-query-item h4 {
+    margin-bottom: 10px;
+    color: #26a69a;
+  }
+  
+  /* Estilo específico para o diagrama mermaid */
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+  

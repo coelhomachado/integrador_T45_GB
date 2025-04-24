@@ -110,7 +110,44 @@
                     <p class="faq-answer">Os pontos podem ser trocados por descontos em estabelecimentos parceiros, produtos sustentáveis ou convertidos em benefícios sociais.</p>
                 </div>
 
+                <div class="image-container">
+                    <img src="/imagens/Capa-final-1.png" alt="sustentabilidade reciclagem" class="eco-image">
+                </div>
+
+
+            <!-- Nova seção com diagrama ER, tabelas e consultas SQL -->
+            <section class="database-section content-section">
+                <h2>Estrutura do Banco de Dados</h2>
+                <p>Conheça como nosso sistema gerencia as informações do programa EcoTroca através da modelagem de dados abaixo:</p>
+
+                <h3>Diagrama Entidade-Relacionamento (DER)</h3>
+
+                <div class="image-container">
+                    <img src="/imagens/der-ecotroca.jpg" alt="der reciclagem" class="eco-image">
+                </div>
+
+
+            <!-- O diagrama será renderizado pelo JavaScript -->
+                    <div class="mermaid"></div>
+
+
+                <h3>Tabelas na 3ª Forma Normal (3FN)</h3>
+                
+                <h4>Pontos de Coleta</h4>
+                <table class="database-table" data-table="ponto_coleta"></table>
+                
+                <h4>Material</h4>
+                <table class="database-table" data-table="material"></table>
+                
+                <h4>Beneficios</h4>
+                <table class="database-table" data-table="beneficio"></table>
+
+                <h3>Consultas SQL</h3>
+                <!-- Container para consultas SQL geradas dinamicamente -->
+                <div class="sql-queries-container"></div>
             </section>
+
+        </section>
 
         </div>
     </main>
@@ -118,5 +155,9 @@
     <footer>
         <p>@felipemoriya - EcoTroca - Projeto Proz/Talento Cloud - T45 - G2 © 2025</p>
     </footer>
+
+    <script src="script.js"></script>
+
+    
 </body>
 </html>
