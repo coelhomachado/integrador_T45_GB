@@ -153,6 +153,11 @@
             line-height: 1.7;
         }
 
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 1px;
+        }
+
         .eco-goal {
             background-color: rgba(33, 154, 96, 0.1);
             padding: 20px;

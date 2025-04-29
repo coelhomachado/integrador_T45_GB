@@ -1,85 +1,143 @@
-// Form validation for the contact form
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
+    const form = document.getElementById('contactForm');
+    const inputs = form.querySelectorAll('input, select, textarea');
     
-    contactForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      if (validateForm()) {
-        // If validation passes, we would normally submit the form
-        // For now, just show a success message
-        alert('Mensagem enviada com sucesso!');
-        contactForm.reset();
-      }
+    // Adicionar CSS para estilização de erro
+    const style = document.createElement('style');
+    style.textContent = `
+        .error {
+            border: 2px solid red !important;
+            background-color: #ffeeee !important;
+        }
+        
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+            margin-top: 5px;
+            display: block;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Função para validar email
+    function isValidEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+    
+    // Função para mostrar erro
+    function showError(input, message) {
+        // Adicionar classe de erro ao input
+        input.classList.add('error');
+        
+        // Verificar se já existe mensagem de erro
+        let errorMsg = input.nextElementSibling;
+        if(errorMsg && errorMsg.classList.contains('error-message')) {
+            errorMsg.textContent = message;
+        } else {
+            // Criar e adicionar mensagem de erro
+            errorMsg = document.createElement('span');
+            errorMsg.classList.add('error-message');
+            errorMsg.textContent = message;
+            input.insertAdjacentElement('afterend', errorMsg);
+        }
+    }
+    
+    // Função para remover erro
+    function removeError(input) {
+        input.classList.remove('error');
+        
+        // Remover mensagem de erro se existir
+        const errorMsg = input.nextElementSibling;
+        if(errorMsg && errorMsg.classList.contains('error-message')) {
+            errorMsg.remove();
+        }
+    }
+    
+    // Validação em tempo real para cada campo
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            validateField(this);
+        });
+        
+        input.addEventListener('input', function() {
+            if(this.classList.contains('error')) {
+                validateField(this);
+            }
+        });
     });
     
-    function validateForm() {
-      let isValid = true;
-      
-      // Get form fields
-      const nome = document.getElementById('nome');
-      const email = document.getElementById('email');
-      const assunto = document.getElementById('assunto');
-      const mensagem = document.getElementById('mensagem');
-      
-      // Clear previous error messages
-      clearErrors();
-      
-      // Validate Name (at least 3 characters)
-      if (nome.value.trim().length < 3) {
-        showError(nome, 'Por favor, insira seu nome completo (mínimo 3 caracteres)');
-        isValid = false;
-      }
-      
-      // Validate Email (using regex pattern)
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email.value.trim())) {
-        showError(email, 'Por favor, insira um email válido');
-        isValid = false;
-      }
-      
-      // Validate Subject (must be selected)
-      if (assunto.value === '') {
-        showError(assunto, 'Por favor, selecione um assunto');
-        isValid = false;
-      }
-      
-      // Validate Message (at least 10 characters)
-      if (mensagem.value.trim().length < 10) {
-        showError(mensagem, 'Por favor, insira uma mensagem com pelo menos 10 caracteres');
-        isValid = false;
-      }
-      
-      return isValid;
+    // Função para validar um campo específico
+    function validateField(field) {
+        switch(field.id) {
+            case 'nome':
+                if(field.value.trim() === '') {
+                    showError(field, 'Por favor, informe seu nome completo');
+                    return false;
+                } else if(field.value.trim().length < 3) {
+                    showError(field, 'Nome deve ter pelo menos 3 caracteres');
+                    return false;
+                } else {
+                    removeError(field);
+                    return true;
+                }
+                break;
+                
+            case 'email':
+                if(field.value.trim() === '') {
+                    showError(field, 'Por favor, informe seu e-mail');
+                    return false;
+                } else if(!isValidEmail(field.value.trim())) {
+                    showError(field, 'Por favor, informe um e-mail válido');
+                    return false;
+                } else {
+                    removeError(field);
+                    return true;
+                }
+                break;
+                
+            case 'assunto':
+                if(field.value === '') {
+                    showError(field, 'Por favor, selecione um assunto');
+                    return false;
+                } else {
+                    removeError(field);
+                    return true;
+                }
+                break;
+                
+            case 'mensagem':
+                if(field.value.trim() === '') {
+                    showError(field, 'Por favor, escreva sua mensagem');
+                    return false;
+                } else if(field.value.trim().length < 10) {
+                    showError(field, 'Mensagem deve ter pelo menos 10 caracteres');
+                    return false;
+                } else {
+                    removeError(field);
+                    return true;
+                }
+                break;
+        }
     }
     
-    function showError(input, message) {
-      // Get the parent form-group div
-      const formGroup = input.parentElement;
-      
-      // Create error message element
-      const errorMessage = document.createElement('div');
-      errorMessage.className = 'error-message';
-      errorMessage.innerText = message;
-      
-      // Add error class to the input
-      input.classList.add('error-input');
-      
-      // Append error message after the input
-      formGroup.appendChild(errorMessage);
-    }
-    
-    function clearErrors() {
-      // Remove all error messages
-      const errorMessages = document.querySelectorAll('.error-message');
-      errorMessages.forEach(function(error) {
-        error.remove();
-      });
-      
-      // Remove error class from inputs
-      const inputs = document.querySelectorAll('input, select, textarea');
-      inputs.forEach(function(input) {
-        input.classList.remove('error-input');
-      });
-    }
-  });
+    // Validação no envio do formulário
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        let isFormValid = true;
+        
+        // Validar todos os campos
+        inputs.forEach(input => {
+            if(!validateField(input)) {
+                isFormValid = false;
+            }
+        });
+        
+        if(isFormValid) {
+            // Se todos os campos estiverem válidos, exibir mensagem de sucesso
+            alert('Mensagem enviada com sucesso!');
+            form.reset();
+        }
+    });
+});
